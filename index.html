@@ -6,32 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Kola</title>
+    <style>
+        #main-aside-wrapper {
+          display: flex;
+          flex-direction: column;
+        }
+        #main-aside-wrapper main, #main-aside-wrapper aside {
+          background-color: #ddd;
+          margin: 10px;
+          padding: 10px;
+        }
+        #main-aside-wrapper aside {
+          flex: 1;
+          order: 1;
+        }
+        #main-aside-wrapper main {
+          flex: 3;
+          order: 2;
+        }
+        
+        @media screen and (min-width: 800px) {
+          #main-aside-wrapper {
+            flex-direction: row;
+          }
+        }
+           
+        </style>
 </head>
+
+
 <body style="margin:0;">
 
     <!-- этот блок будет тянуться по ширине окна -->
+
+    <div id="main-aside-wrapper">
+        <main>
+            <!-- этот блок, как положено блочному элементу по умолчанию, займет всю оставшуюся ширину родительского элемента -->
+           
+                <a href="https://habr.com/ru/news/769938/">intel разогнали до 9Ггц</a>
+          
+          
+                <a href="">Садоводстов</a>
+           
+                <a href="">Меню</a>
+           
+                Моя первая HTML страница.
+            
+        </main>
+
+        <aside>
+            <!-- картинка обтекает текст слева -->
+            <img src="image1.png"/>
+        </aside>
+      </div>
     
-    <div style="width:100%; background-color:#ccc; padding: 10px; height:120px;">
-        <!-- картинка обтекает текст слева -->
-        <img style="float:left; margin:10px; width:100px; height:100px;" src="image1.png" alt="Описание картинки для скрин-ридеров и поисковиков" />
-        <!-- этот блок, как положено блочному элементу по умолчанию, займет всю оставшуюся ширину родительского элемента -->
-        <div style="float:right;background-color:#ddd; padding:10px;">
-            <a href="https://habr.com/ru/news/769938/">intel разогнали до 9Ггц</a>
-        </div>
-        <div style="float: right; background-color: #ddd; padding: 10px; width: 400px;">
-            <a href="">Садоводстов</a>
-        </div>
-        <div style="float: right; background-color: #ddd; padding: 10px; width: 400px;">
-            <a href="">Меню</a>
-        </div>
-        <div style="margin: 71px; width: 300px; background-color: #ddd; padding: 10px; ">
-            Моя первая HTML страница.
-        </div>
-    </div>
- 
+    
 
     <!-- Список гиперссылок -->
-    <div style="max-width: 960px; background-color: #ccc; margin: 0 auto; margin-top: 20px; padding: 10px;">
+    <div style="max-width: 960px; background-color: #ddd; margin: 0 auto; margin-top: 20px; padding: 10px;">
         <h2 id="t1">Список гиперссылок</h2>
         <ul>
             <li><a href="http://kubsu.ru">абсолютнуая cсылочка на кубик http</a></li>
@@ -85,7 +117,7 @@
 
     <!-- Таблица -->
    
-    <div style="max-width: 960px; background-color: #ccc; margin: 0 auto; margin-top: 20px; padding: 10px;">
+    <div style="max-width: 960px; background-color: #ddd; margin: 0 auto; margin-top: 20px; padding: 10px;">
     <table>
         <caption>Не информативная таблица</caption>
          <tr style="background: white;">
@@ -124,7 +156,7 @@
 
 
     <!--  Форма -->
-    <div style="max-width: 960px; background-color: #ccc; margin: 0 auto; margin-top: 20px; padding: 10px;">
+    <div style="max-width: 960px; background-color: #ddd; margin: 0 auto; margin-top: 20px; padding: 10px;">
         <span style="background-color:red;">
             <form action="" method="get">
                 <p>
