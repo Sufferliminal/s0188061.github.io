@@ -31,7 +31,29 @@
           }
         }
            
-        </style>
+
+.text-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.menu-item {
+  padding-right: 20px; /* Пробел между пунктами */
+}
+
+@media (max-width: 768px) {
+  .text-container {
+    flex-direction: column;
+  }
+
+  .menu-item {
+    padding-bottom: 10px; /* Пробел между пунктами в столбик */
+    padding-right: 0;
+  }
+}
+</style>
 </head>
 
 
@@ -41,19 +63,18 @@
 
     <div id="main-aside-wrapper">
         <main>
-            <!-- этот блок, как положено блочному элементу по умолчанию, займет всю оставшуюся ширину родительского элемента -->
-           
-                <a href="https://habr.com/ru/news/769938/">intel разогнали до 9Ггц</a>
-          
-          
-                <a href="">Садоводстов</a>
-           
-                <a href="">Меню</a>
-           
-                Моя первая HTML страница.
+            
+            
+            <div class="text-container">
+                <div class="menu-item"><a href="https://habr.com/ru/news/769938/">intel разогнали до 9Ггц</a></div>
+                <div class="menu-item"><a href="">Садоводстов</a></div>
+                <div class="menu-item"><a href="page.html">Меню</a></div>
+            </div>
+            
             
         </main>
-
+    
+        
         <aside>
             <!-- картинка обтекает текст слева -->
             <img src="image1.png"/>
