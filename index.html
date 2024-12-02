@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kola</title>
+    <style>
+        #main-aside-wrapper {
+          display: flex;
+          flex-direction: column;
+        }
+        #main-aside-wrapper main, #main-aside-wrapper aside {
+          background-color: #ddd;
+          margin: 0px 0px 10px;
+          padding: 10px;
+        }
+        #main-aside-wrapper aside {
+          flex: 1;
+          order: 1;
+        }
+        #main-aside-wrapper main {
+          flex: 3;
+          order: 2;
+        }
+        
+        @media screen and (min-width: 800px) {
+          #main-aside-wrapper {
+            flex-direction: row;
+          }
+        }
+           
+
+.text-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.menu-item {
+  padding-right: 20px; /* Пробел между пунктами */
+}
+
+@media (max-width: 768px) {
+  .text-container {
+    flex-direction: column;
+  }
+
+  .menu-item {
+    padding-bottom: 10px; /* Пробел между пунктами в столбик */
+    padding-right: 0;
+  }
+}
+</style>
+</head>
+
+
+<body style="margin:0;>
+
+    <!-- этот блок будет тянуться по ширине окна -->
+
+
+
+    <div id="main-aside-wrapper">
+        <main>
+            
+            
+            <div class="text-container">
+                <div class="menu-item"><a href="https://habr.com/ru/news/769938/">intel разогнали до 9Ггц</a></div>
+                <div class="menu-item"><a href="">Садоводстов</a></div>
+                <div class="menu-item"><a href="page.html">Меню</a></div>
+            </div>
+            
+            
+        </main>
+    
+        
+        <aside>
+            <!-- картинка обтекает текст слева -->
+            <img src="image1.png"/>
+        </aside>
+     </div>
+  
+    <!-- Список гиперссылок -->
+    <div style="max-width: 960px; background-color: #ddd; margin: 0 auto; margin-top: 20px; padding: 10px;">
+        <h2 id="t1">Список гиперссылок</h2>
+        <ul>
+            <li><a href="http://kubsu.ru">абсолютнуая cсылочка на кубик http</a></li>
+            <li><a href="https://kubsu.ru">абсолютнуая ссылочка2 на кубик https</a></li>
+            <li>
+                <a href="http://kubsu.ru">
+                    <img src="image.jpg" width="200">
+                </a>
+            </li>
+            <li></li><a href="clx.html">калькулятор</a></li>
+            <li><a href="page.html">cокращенная ссылкa на внутреннюю страницу</a></li>
+            <li><a href="index.html">cокращенная ссылкa на главную страницу</a></li>
+            <li><a href="#t1">Ссылк на фрагмент</a></li>
+            <li><a href="https://someshop.ru/catalog/iphone?page=1&perpage=20">Ссылка c 3 параметрами url</a></li>
+            <li><a href="http://site.com/page?id=2">ссылка с параметром id в URL</a></li>
+            <li><a href="page.html">относительная на страницу в текущем каталоге</a></li>
+            <li><a href="/about/page.html">относительная на страницу в каталоге about</a></li>
+            <li><a href="../page.html">относительная на страницу в каталоге уровнем выше текущего</a></li>
+            <li><a href="/../../page.html">относительная на страницу в каталоге двумя уровнями выше текущего</a></li>
+            <li>контекстная в <a href="#">тексте</a> абзаца</li>
+            <li><a href="https://ria.ru/">ссылкa на фрагмент страницы стороннего сайта</a></li>
+            <li><img src="image1.png" width="411" height="146" usemap="#map" alt="image1.png"></li>
+            <p>
+                <map name="map">
+                    <area shape="circle" alt="Закладка 2"
+                          coords="210,27, 203,9, 202,6, 197,2, 192,1, 120,1, 115,2, 110,6, 112,9, 119,27, 119,32, 211,32, 210,27"
+                          href="2.html">
+                    <area shape="poly" alt="Закладка 3"
+                          coords="302,27, 295,9, 293,6, 289,2, 283,1, 212,1, 206,2, 202,6, 203,9, 210,27, 211,32, 284,32, 303,32, 302,27" href="3.html">
+                    <area shape="poly" alt="Закладка 4"
+                          coords="302,27, 303,32, 394,32, 393,27, 386,9, 382,3, 375,1, 303,1, 298,2, 293,6, 295,9, 302,27"
+                          href="4.html">
+                </map>
+            </p>
+            <li><a href="">ссылкa с пустым href</a></li>
+            <li><a>ссылкa без href</a></li>
+            <li><a href="http://" rel="nofollow">ссылкa, по которой запрещен переход поисковикам</a></li>
+            <li><a href="http://" rel="noindex">ссылкa, по которой запрещен переход поисковикам</a></li>
+            <li>
+                <ol>
+                    <li><a href="https://ria.ru/incidents/">title</a></li>
+                    <li><a href="https://ria.ru/world/">title</a></li>
+                    <li><a href="https://www.youtube.com/">title</a></li>
+                    <li><a href="https://mail.ru/">title</a></li>
+                </ol>
+            </li>
+            <li><a href="ftp://user:pass123@site.ru/Temp/file.txt">беб</a></li>
+
+        </ul>
+    </div>
+
+
+    <!-- Таблица -->
+   
+    <div style="max-width: 960px; background-color: #ddd; margin: 0 auto; margin-top: 20px; padding: 10px;">
+    <table>
+        <caption>Не информативная таблица</caption>
+         <tr style="background: white;">
+            <td> день.месяц.год</td>
+            <td> имя</td>
+            <td> цвет</td>
+            <td> любимое число</td>
+            <td> кол-во ручек</td>
+            <td> кол-во перьев</td>
+            <td> рейтинг</td>
+        </tr>
+        <tr style="background: rgb(182, 180, 67);">
+            <td rowspan="3"> 12.10.1991</td>
+            <td> Николай</td>
+            <td> Синий</td>
+            <th colspan="4"> 0 </th>
+        </tr>
+        <tr style="background: white;">
+            <td> Иван</td>
+            <td> красный</td>
+            <td> 13</td>
+            <td> 13</td>
+            <td> 0</td>
+            <td> 12</td>
+        </tr>
+        <tr style="background: rgb(182, 180, 67);">
+            <td> Андрей</td>
+            <td> оранжевый</td>
+            <td> 10</td>
+            <td> 7</td>
+            <td> -1</td>
+            <td> 100</td>
+        </tr>
+    </table>
+    </div>
+
+
+    <!--  Форма -->
+    <div style="max-width: 960px; background-color: #ddd; margin: 0 auto; margin-top: 20px; padding: 10px;">
+        <span style="background-color:red;">
+            <form action="" method="get">
+                <p>
+                    <label for="name">Введите ФИО:</label>
+                    <input type="text" name="name" id="name" required>
+                </p>
+                <p>
+                    <label for="tel">Введите телефон:</label>
+                    <input type="tel" name="tel" id="tel" required>
+                </p>
+                <p>
+                    <label for="email">Введите email:</label>
+                    <input type="email" name="email" id="email" required>
+                </p>
+                <p>
+                    <label for="date">Введите дату рождения:</label>
+                    <input type="date" name="date" id="date" required>
+                </p>
+                <legend>Выберите пол</legend>
+                <label>
+                    <input type="radio" name="level">
+                    М
+                </label>
+                <label>
+                    <input type="radio" name="level" checked>
+                    Ж
+                </label>
+                <br>
+                <label>
+                    Выберете языки программирования:
+                    <br />
+                    <select name="field-name-4[]"
+                            multiple="multiple">
+                        <option value="Значение1"> Pascal</option>
+                        <option value="Значение2">C</option>
+                        <option value="Значение3">C++</option>
+                        <option value="Значение3">JavaScript</option>
+                        <option value="Значение3">PHP</option>
+                        <option value="Значение3">Python</option>
+                        <option value="Значение3">Java</option>
+                        <option value="Значение3">Haskel</option>
+                        <option value="Значение3">Clojure</option>
+                        <option value="Значение3">Prolog</option>
+                        <option value="Значение3">Scala</option>
+
+                    </select>
+                </label><br />
+                <button type="submit">Отправить</button>
+            </form>
+        </span>
+    </div>
+
+
+
+</body>
+<footer>
+    <th><strong> Николай гончаров </strong></th>
+  </footer>
+
+</html>
