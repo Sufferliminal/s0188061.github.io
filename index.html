@@ -63,6 +63,36 @@
 
     <!-- этот блок будет тянуться по ширине окна -->
 
+      <!-- Картиночки прокруточка -->
+    <button class="arrow">⇦</button>
+  <button class="arrow">⇨</button>
+
+
+  <ul>
+<li><img src="bb2f43c1bb52066cb8ff9bfcc6237dcf.jpg"></li>
+<li><img src="be8356ef-a78d-4e6b-ac9b-ad26d51e2f68.jpg"></li>
+<li><img src="d9269f6d-e59d-46ab-a577-35b81625a115.jpg"></li>
+<li><img src="header.jpg"></li>
+<li><img src="header2.jpg"></li>
+<li><img src="qLhYVRYcHck.jpg"></li>
+<li><img src="kuromi.jpg"></li>
+  </ul>
+
+
+  <script>
+    // отметить картинки для удобства разработки
+    // этот код может быть удалён по вашему усмотрению
+    let i = 1;
+    for(let li of document.querySelectorAll('li')) {
+      li.style.position = 'relative';
+      li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+      i++;
+    }
+
+    // ...ваш код, который сделает карусель рабочей
+  </script>
+
+
     <div id="main-aside-wrapper">
         <main>
             
@@ -83,38 +113,7 @@
         </aside>
       </div>
     
-    <!-- Картиночки прокруточка -->
-    <button class="arrow">⇦</button>
-  <button class="arrow">⇨</button>
-
-
-  <ul>
-    <li><img src="https://ru.js.cx/carousel/1.png"></li>
-    <li><img src="https://ru.js.cx/carousel/2.png"></li>
-    <li><img src="https://ru.js.cx/carousel/3.png"></li>
-    <li><img src="https://ru.js.cx/carousel/4.png"></li>
-    <li><img src="https://ru.js.cx/carousel/5.png"></li>
-    <li><img src="https://ru.js.cx/carousel/6.png"></li>
-    <li><img src="https://ru.js.cx/carousel/7.png"></li>
-    <li><img src="https://ru.js.cx/carousel/8.png"></li>
-    <li><img src="https://ru.js.cx/carousel/9.png"></li>
-    <li><img src="https://ru.js.cx/carousel/10.png"></li>
-  </ul>
-
-
-  <script>
-    // отметить картинки для удобства разработки
-    // этот код может быть удалён по вашему усмотрению
-    let i = 1;
-    for(let li of document.querySelectorAll('li')) {
-      li.style.position = 'relative';
-      li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-      i++;
-    }
-
-    // ...ваш код, который сделает карусель рабочей
-  </script>
-
+  
     <!-- Список гиперссылок -->
     <div style="max-width: 960px; background-color: #ddd; margin: 0 auto; margin-top: 20px; padding: 10px;">
         <h2 id="t1">Список гиперссылок</h2>
