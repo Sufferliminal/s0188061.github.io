@@ -45,7 +45,7 @@
 
         carousel.querySelector('.prev').onclick = function () {
             // сдвиг влево
-            position -= width ;
+            position += width ;
             // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
             position = Math.min(position, 0)
             list.style.marginLeft = position + 'px';
@@ -53,7 +53,7 @@
 
         carousel.querySelector('.next').onclick = function () {
             // сдвиг вправо
-            position += width ;
+            position -= width ;
             // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
             position = Math.max(position, -width * (listElems.length - count));
             list.style.marginLeft = position + 'px';
