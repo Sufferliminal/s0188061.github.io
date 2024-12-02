@@ -3,91 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор стоимости заказа</title>
-    <link rel="stylesheet" href="styleimg.css">
+    <title>Калькулятор стоимости</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <h1>Калькулятор стоимости услуги</h1>
+    <form id="calculator-form">
+        <label>
+            Количество:
+            <input type="number" id="quantity" min="1" value="1">
+        </label>
+        <br><br>
 
-    <div id="carousel" class="carousel">
-        <button class="arrow prev">L</button>
-        <div class="gallery">
-            <ul>
-                <li><img src="header.jpg"></li>
-                <li><img src="header1.jpg"></li>
-                <li><img src="header2.jpg"></li>
-                <li><img src="image.jpg"></li>
-                <li><img src="image1.png"></li>
-                <li><img src="qLhYVRYcHck.jpg"></li>
-                <li><img src="be8356ef-a78d-4e6b-ac9b-ad26d51e2f68.jpg"></li>
-                <li><img src="bb2f43c1bb52066cb8ff9bfcc6237dcf.jpg"></li>
-            </ul>
+        <label>Тип услуги:</label>
+        <label><input type="radio" name="serviceType" value="1" checked> Тип 1</label>
+        <label><input type="radio" name="serviceType" value="2"> Тип 2</label>
+        <label><input type="radio" name="serviceType" value="3"> Тип 3</label>
+        <br><br>
+
+        <div id="options-container" class="hidden">
+            <label>Опции:</label>
+            <select id="options">
+                <option value="10">Опция 1 (+10 руб)</option>
+                <option value="20">Опция 2 (+20 руб)</option>
+            </select>
         </div>
-        <button class="arrow next">R</button>
-    </div>
+        <br>
+
+        <div id="checkbox-container" class="hidden">
+            <label>
+                <input type="checkbox" id="property" value="30">
+                Свойство (+30 руб)
+            </label>
+        </div>
+        <br>
+
+        <h2>Итоговая стоимость: <span id="total-cost">0</span> руб.</h2>
+    </form>
 
     <script>
-        /* этот код помечает картинки, для удобства разработки */
-        let i = 1;
-        for (let li of carousel.querySelectorAll('li')) {
-            li.style.position = 'relative';
-            li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-            i++;
+        const quantityInput = document.getElementById('quantity');
+        const serviceTypeRadios = document.querySelectorAll('input[name="serviceType"]');
+        const optionsContainer = document.getElementById('options-container');
+        const optionsSelect = document.getElementById('options');
+        const checkboxContainer = document.getElementById('checkbox-container');
+        const propertyCheckbox = document.getElementById('property');
+        const totalCostElement = document.getElementById('total-cost');
+
+        function updateForm() {
+            const selectedServiceType = document.querySelector('input[name="serviceType"]:checked').value;
+
+            // Скрываем или показываем опции и чекбокс в зависимости от типа услуги
+            if (selectedServiceType === '1') {
+                optionsContainer.classList.add('hidden');
+                checkboxContainer.classList.add('hidden');
+            } else if (selectedServiceType === '2') {
+                optionsContainer.classList.remove('hidden');
+                checkboxContainer.classList.add('hidden');
+            } else if (selectedServiceType === '3') {
+                optionsContainer.classList.add('hidden');
+                checkboxContainer.classList.remove('hidden');
+            }
         }
 
-        /* конфигурация */
-        let width = 130; // ширина картинки
-        let count = 3; // видимое количество изображений
+        function calculateTotalCost() {
+            const quantity = parseInt(quantityInput.value, 10);
+            const selectedServiceType = document.querySelector('input[name="serviceType"]:checked').value;
 
-        let list = carousel.querySelector('ul');
-        let listElems = carousel.querySelectorAll('li');
+            let baseCost = 100; // базовая стоимость услуги
+            let optionCost = 0;
+            let propertyCost = 0;
 
-        let position = 0; // положение ленты прокрутки
+            // Учитываем стоимость опции
+            if (selectedServiceType === '2') {
+                optionCost = parseInt(optionsSelect.value, 10);
+            }
 
-        carousel.querySelector('.prev').onclick = function () {
-            // сдвиг влево
-            position += width ;
-            // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-            position = Math.min(position, 0)
-            list.style.marginLeft = position + 'px';
-        };
+            // Учитываем стоимость свойства
+            if (selectedServiceType === '3' && propertyCheckbox.checked) {
+                propertyCost = parseInt(propertyCheckbox.value, 10);
+            }
 
-        carousel.querySelector('.next').onclick = function () {
-            // сдвиг вправо
-            position -= width ;
-            // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-            position = Math.max(position, -width * (listElems.length - count));
-            list.style.marginLeft = position + 'px';
-        };
-    </script>
-    <div calss = "calc">
-        <h1>Калькулятор стоимости заказа</h1>
-        <label for="quantity">Количество товара:</label>
-        <input type="number" id="quantity" min="1" value="1">
-
-        <label for="product">Выберите товар:</label>
-        <select id="product">
-            <option value="100">Товар 1 - 100 руб.</option>
-            <option value="200">Товар 2 - 200 руб.</option>
-            <option value="300">Товар 3 - 300 руб.</option>
-        </select>
-
-        <button onclick="calculateCost()">Подсчитать стоимость</button>
-
-        <p id="result"></p>
-    </div>
-    
-
-    <script>
-        function calculateCost() {
-            // Получаем количество товара
-            const quantity = document.getElementById('quantity').value;
-            // Получаем цену выбранного товара
-            const price = document.getElementById('product').value;
-            // Вычисляем стоимость
-            const totalCost = quantity * price;
-            // Выводим результат
-            document.getElementById('result').textContent = `Стоимость заказа: ${totalCost} руб.`;
+            // Итоговая стоимость
+            const totalCost = (baseCost + optionCost + propertyCost) * quantity;
+            totalCostElement.textContent = totalCost;
         }
+
+        // События для обновления формы и расчета стоимости
+        quantityInput.addEventListener('input', calculateTotalCost);
+        serviceTypeRadios.forEach(radio => radio.addEventListener('change', () => {
+            updateForm();
+            calculateTotalCost();
+        }));
+        optionsSelect.addEventListener('change', calculateTotalCost);
+        propertyCheckbox.addEventListener('change', calculateTotalCost);
+
+        // Инициализация формы
+        updateForm();
+        calculateTotalCost();
     </script>
 </body>
 </html>
