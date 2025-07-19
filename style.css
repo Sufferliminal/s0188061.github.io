@@ -1,9 +1,10 @@
 @font-face {
     font-family:"needforspeed" ;
-    src: url("nfsmw.ttf") format("ttf");
-    font-weight:400;
+    src: url('/nfsmw.ttf') format("ttf");
+    font-weight:normal;
     font-style: normal;
 }
 h1{
-    font-family: "needforspeed";
+ color: blueviolet;
+ font-family: "needforspeed";
 }
