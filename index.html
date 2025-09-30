@@ -375,7 +375,7 @@
                     
                     for (let i = 0; i < count; i++) {
                         const id = Math.random().toString(36).substring(2);
-                        const useImage = Math.random() > 0.5; // 50% шанс использовать картинку вместо эмодзи
+                        const useImage = Math.random() > 0.15; // 50% шанс использовать картинку вместо эмодзи
                         const angle = Math.random() * 360;
                         const size = 16 + Math.random() * 18;
                         const duration = 8000 + Math.random() * 4000;
@@ -448,6 +448,7 @@
     </script>
 </body>
 </html>
+
 
 
 
