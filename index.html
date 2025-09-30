@@ -361,7 +361,7 @@
             // Функция запуска частиц
             function startParticles() {
                 particleTimer = setInterval(() => {
-                    const emojis = ["❤️", "✨", "🎨", "🎉", "🌸", "💅"]
+                    const emojis = ["❤️", "✨", "🎨", "🎉", "🌸", "💅"];
                     const images = [
                         'png1.png',
                         'https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_c0c9c932c82244ff920ad2134be90afb/static/light/1.0',
@@ -375,9 +375,10 @@
                     
                     for (let i = 0; i < count; i++) {
                         const id = Math.random().toString(36).substring(2);
-                        const useImage = Math.random() > 0.15; // 50% шанс использовать картинку вместо эмодзи
+                        const useImage = Math.random() > 0.75;
                         const angle = Math.random() * 360;
-                        const size = 16 + Math.random() * 18;
+                        // УВЕЛИЧИЛ РАЗМЕР: было 16-34px, стало 30-60px
+                        const size = 30 + Math.random() * 20;
                         const duration = 8000 + Math.random() * 4000;
                         
                         // Создаем элемент частицы
@@ -401,9 +402,10 @@
                         
                         particle.style.opacity = '0.8';
                         
-                        // Вычисляем конечные координаты
-                        const tx = Math.cos(angle * Math.PI/180) * 300;
-                        const ty = Math.sin(angle * Math.PI/180) * 300;
+                        // УВЕЛИЧИЛ ДИСТАНЦИЮ В 2 РАЗА: было 300px, стало 600px
+                        const distance = 600;
+                        const tx = Math.cos(angle * Math.PI/180) * distance;
+                        const ty = Math.sin(angle * Math.PI/180) * distance;
                         
                         // Устанавливаем CSS переменные для анимации
                         particle.style.setProperty('--tx', `${tx}px`);
@@ -448,7 +450,3 @@
     </script>
 </body>
 </html>
-
-
-
-
